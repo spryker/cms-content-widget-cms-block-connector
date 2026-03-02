@@ -47,9 +47,6 @@ class CmsBlockContentWidgetPlugin extends AbstractPlugin implements CmsContentWi
      */
     protected $widgetConfiguration;
 
-    /**
-     * @param \Spryker\Shared\CmsContentWidget\Dependency\CmsContentWidgetConfigurationProviderInterface $widgetConfiguration
-     */
     public function __construct(CmsContentWidgetConfigurationProviderInterface $widgetConfiguration)
     {
         $this->widgetConfiguration = $widgetConfiguration;
@@ -100,11 +97,6 @@ class CmsBlockContentWidgetPlugin extends AbstractPlugin implements CmsContentWi
         return $rendered;
     }
 
-    /**
-     * @param string|null $templateIdentifier
-     *
-     * @return string
-     */
     protected function resolveTemplatePath(?string $templateIdentifier = null): string
     {
         $availableTemplates = $this->widgetConfiguration->getAvailableTemplates();
@@ -129,21 +121,11 @@ class CmsBlockContentWidgetPlugin extends AbstractPlugin implements CmsContentWi
         return $blocks;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CmsBlockTransfer $cmsBlockData
-     *
-     * @return bool
-     */
     protected function validateBlock(CmsBlockTransfer $cmsBlockData): bool
     {
         return $cmsBlockData->getCmsBlockTemplate()->getTemplatePath() !== null;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CmsBlockTransfer $cmsBlockTransfer
-     *
-     * @return bool
-     */
     protected function validateDates(CmsBlockTransfer $cmsBlockTransfer): bool
     {
         $dateToCompare = new DateTime();
@@ -167,11 +149,6 @@ class CmsBlockContentWidgetPlugin extends AbstractPlugin implements CmsContentWi
         return true;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CmsBlockTransfer $cmsBlockTransfer
-     *
-     * @return array
-     */
     protected function getPlaceholders(CmsBlockTransfer $cmsBlockTransfer): array
     {
         $placeholders = [];
@@ -182,11 +159,6 @@ class CmsBlockContentWidgetPlugin extends AbstractPlugin implements CmsContentWi
         return $placeholders;
     }
 
-    /**
-     * @param array $cmsBlock
-     *
-     * @return \Generated\Shared\Transfer\CmsBlockTransfer
-     */
     protected function mapCmsBlockToTransfer(array $cmsBlock): CmsBlockTransfer
     {
         $cmsBlockTransfer = (new CmsBlockTransfer())->fromArray($cmsBlock, true);

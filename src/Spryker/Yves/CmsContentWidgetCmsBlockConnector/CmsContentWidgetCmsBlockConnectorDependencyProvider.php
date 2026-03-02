@@ -18,11 +18,6 @@ class CmsContentWidgetCmsBlockConnectorDependencyProvider extends AbstractBundle
      */
     public const CLIENT_CMS_BLOCK_STORAGE = 'CLIENT_CMS_BLOCK_STORAGE';
 
-    /**
-     * @param \Spryker\Yves\Kernel\Container $container
-     *
-     * @return \Spryker\Yves\Kernel\Container
-     */
     public function provideDependencies(Container $container): Container
     {
         $container = parent::provideDependencies($container);
@@ -31,11 +26,6 @@ class CmsContentWidgetCmsBlockConnectorDependencyProvider extends AbstractBundle
         return $container;
     }
 
-    /**
-     * @param \Spryker\Yves\Kernel\Container $container
-     *
-     * @return \Spryker\Yves\Kernel\Container
-     */
     protected function addCmsBlockStorageClient(Container $container): Container
     {
         $container->set(static::CLIENT_CMS_BLOCK_STORAGE, function (Container $container) {

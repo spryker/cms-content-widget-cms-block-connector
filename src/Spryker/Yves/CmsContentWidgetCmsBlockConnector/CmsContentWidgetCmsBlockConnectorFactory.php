@@ -12,9 +12,6 @@ use Spryker\Yves\Kernel\AbstractFactory;
 
 class CmsContentWidgetCmsBlockConnectorFactory extends AbstractFactory
 {
-    /**
-     * @return \Spryker\Yves\CmsContentWidgetCmsBlockConnector\Dependency\Client\CmsContentWidgetCmsBlockConnectorToCmsBlockStorageClientInterface
-     */
     public function getCmsBlockStorageClient(): CmsContentWidgetCmsBlockConnectorToCmsBlockStorageClientInterface
     {
         return $this->getProvidedDependency(CmsContentWidgetCmsBlockConnectorDependencyProvider::CLIENT_CMS_BLOCK_STORAGE);
